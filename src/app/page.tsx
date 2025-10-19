@@ -1,103 +1,358 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { FileText, Shield, PenTool, MessageSquare, Check } from 'lucide-react';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      {/* Navbar */}
+      <nav className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center gap-2">
+              <FileText className="h-8 w-8 text-blue-600" />
+              <span className="text-xl font-bold text-slate-900">
+                LegalStock
+              </span>
+            </div>
+            <div className="hidden md:flex items-center gap-6">
+              <Link
+                href="#contratos"
+                className="text-slate-600 hover:text-slate-900"
+              >
+                Contratos
+              </Link>
+              <Link
+                href="#suscripciones"
+                className="text-slate-600 hover:text-slate-900"
+              >
+                Suscripciones
+              </Link>
+              <Link
+                href="#sectores"
+                className="text-slate-600 hover:text-slate-900"
+              >
+                Sectores
+              </Link>
+            </div>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/login"
+                className="text-slate-600 hover:text-slate-900 font-medium"
+              >
+                Iniciar sesión
+              </Link>
+              <Link
+                href="/register"
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+              >
+                Comenzar
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </nav>
+
+      {/* Hero Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+        <div className="text-center max-w-3xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6">
+            Contratos legales
+            <span className="block text-blue-600">en minutos</span>
+          </h1>
+          <p className="text-xl text-slate-600 mb-8">
+            Plantillas de contratos profesionales, firma digital válida en
+            México, y asesoría legal básica. Todo lo que tu negocio necesita.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contratos"
+              className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition shadow-lg"
+            >
+              Ver contratos
+            </Link>
+            <Link
+              href="/suscripciones"
+              className="bg-white text-slate-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-50 transition border-2 border-slate-200"
+            >
+              Planes y precios
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <FeatureCard
+            icon={<FileText className="h-8 w-8 text-blue-600" />}
+            title="Contratos profesionales"
+            description="Plantillas creadas por abogados, actualizadas con la legislación vigente"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <FeatureCard
+            icon={<PenTool className="h-8 w-8 text-blue-600" />}
+            title="Firma digital"
+            description="Firma electrónica con validez oficial (NOM-151). Compatible con e.firma del SAT"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          <FeatureCard
+            icon={<Shield className="h-8 w-8 text-blue-600" />}
+            title="100% legal"
+            description="Contratos que cumplen con todas las leyes mexicanas vigentes"
           />
-          Go to nextjs.org →
-        </a>
+          <FeatureCard
+            icon={<MessageSquare className="h-8 w-8 text-blue-600" />}
+            title="Asesoría incluida"
+            description="Pregunta a nuestro asistente legal sobre dudas básicas (plan Premium)"
+          />
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="bg-slate-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            ¿Cómo funciona?
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <StepCard
+              number="1"
+              title="Elige tu contrato"
+              description="Selecciona de nuestro catálogo el contrato que necesitas para tu negocio"
+            />
+            <StepCard
+              number="2"
+              title="Personaliza y descarga"
+              description="Descarga el contrato en formato editable, listo para personalizar con tus datos"
+            />
+            <StepCard
+              number="3"
+              title="Firma digitalmente"
+              description="Envía a firma digital a todas las partes involucradas. Validez oficial en México"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing preview */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 className="text-3xl font-bold text-center mb-4">
+          Planes para cada necesidad
+        </h2>
+        <p className="text-center text-slate-600 mb-12">
+          Desde contratos individuales hasta suscripciones con asesoría incluida
+        </p>
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <PricingCard
+            name="Por contrato"
+            price="Desde $299"
+            description="Compra solo lo que necesitas"
+            features={[
+              'Un contrato específico',
+              'Descarga inmediata',
+              'Formato editable',
+              'Actualizaciones incluidas'
+            ]}
+          />
+          <PricingCard
+            name="Básico"
+            price="$299/mes"
+            description="Acceso ilimitado a contratos"
+            features={[
+              'Todos los contratos',
+              'Descargas ilimitadas',
+              'Actualizaciones automáticas',
+              'Soporte por email'
+            ]}
+            highlighted
+          />
+          <PricingCard
+            name="Premium"
+            price="$349/mes"
+            description="Todo + asesoría legal"
+            features={[
+              'Todo lo del plan Básico',
+              'Chat con asistente legal',
+              'Respuestas en 24hrs',
+              'Firma digital incluida'
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-blue-600 text-white py-16">
+        <div className="max-w-4xl mx-auto text-center px-4">
+          <h2 className="text-4xl font-bold mb-4">
+            Protege tu negocio hoy mismo
+          </h2>
+          <p className="text-xl mb-8 text-blue-100">
+            Únete a cientos de empresas que confían en LegalStock para sus
+            contratos
+          </p>
+          <Link
+            href="/register"
+            className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-50 transition shadow-lg"
+          >
+            Comenzar ahora
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-900 text-slate-400 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <FileText className="h-6 w-6 text-white" />
+                <span className="text-lg font-bold text-white">LegalStock</span>
+              </div>
+              <p className="text-sm">
+                Contratos legales profesionales al alcance de tu negocio.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-4">Producto</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="/contratos" className="hover:text-white">
+                    Contratos
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/suscripciones" className="hover:text-white">
+                    Suscripciones
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/sectores" className="hover:text-white">
+                    Sectores
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-4">Legal</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="/terminos" className="hover:text-white">
+                    Términos de uso
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacidad" className="hover:text-white">
+                    Privacidad
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-4">Soporte</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="/ayuda" className="hover:text-white">
+                    Centro de ayuda
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contacto" className="hover:text-white">
+                    Contacto
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-slate-800 mt-12 pt-8 text-center text-sm">
+            <p>&copy; 2025 LegalStock. Todos los derechos reservados.</p>
+          </div>
+        </div>
       </footer>
+    </div>
+  );
+}
+
+function FeatureCard({
+  icon,
+  title,
+  description
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="bg-white p-6 rounded-xl border border-slate-200 hover:shadow-lg transition">
+      <div className="mb-4">{icon}</div>
+      <h3 className="text-lg font-semibold text-slate-900 mb-2">{title}</h3>
+      <p className="text-slate-600">{description}</p>
+    </div>
+  );
+}
+
+function StepCard({
+  number,
+  title,
+  description
+}: {
+  number: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="text-center">
+      <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+        {number}
+      </div>
+      <h3 className="text-xl font-semibold text-slate-900 mb-2">{title}</h3>
+      <p className="text-slate-600">{description}</p>
+    </div>
+  );
+}
+
+function PricingCard({
+  name,
+  price,
+  description,
+  features,
+  highlighted = false
+}: {
+  name: string;
+  price: string;
+  description: string;
+  features: string[];
+  highlighted?: boolean;
+}) {
+  return (
+    <div
+      className={`p-8 rounded-xl border-2 ${
+        highlighted ? 'border-blue-600 shadow-xl scale-105' : 'border-slate-200'
+      } bg-white`}
+    >
+      {highlighted && (
+        <span className="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+          Más popular
+        </span>
+      )}
+      <h3 className="text-2xl font-bold text-slate-900 mt-4">{name}</h3>
+      <p className="text-3xl font-bold text-blue-600 mt-2">{price}</p>
+      <p className="text-slate-600 mt-2 mb-6">{description}</p>
+      <ul className="space-y-3 mb-8">
+        {features.map((feature, i) => (
+          <li key={i} className="flex items-start gap-2">
+            <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+            <span className="text-slate-700">{feature}</span>
+          </li>
+        ))}
+      </ul>
+      <Link
+        href="/register"
+        className={`block text-center w-full py-3 rounded-lg font-semibold transition ${
+          highlighted
+            ? 'bg-blue-600 text-white hover:bg-blue-700'
+            : 'bg-slate-100 text-slate-900 hover:bg-slate-200'
+        }`}
+      >
+        Empezar ahora
+      </Link>
     </div>
   );
 }
