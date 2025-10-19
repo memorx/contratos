@@ -1,3 +1,4 @@
+// prisma/seed.ts
 const { PrismaClient } = require('@prisma/client');
 const bcrypt = require('bcryptjs');
 
@@ -8,6 +9,7 @@ async function main() {
 
   const hashedPassword = await bcrypt.hash('Admin123!', 10);
 
+  // Super Admin - Adrian
   const superAdmin = await prisma.user.upsert({
     where: { email: 'adrian@legalstock.com' },
     update: {},
@@ -22,6 +24,23 @@ async function main() {
 
   console.log('✅ Super Admin created:', superAdmin.email);
   console.log('📧 Email: adrian@legalstock.com');
+  console.log('🔑 Password: Admin123!');
+
+  // Admin - Guillermo
+  const adminUser = await prisma.user.upsert({
+    where: { email: 'guillermo.sanchezy@gmail.com' },
+    update: {},
+    create: {
+      email: 'guillermo.sanchezy@gmail.com',
+      name: 'Guillermo Sanchez',
+      password: hashedPassword,
+      role: 'ADMIN',
+      emailVerified: new Date()
+    }
+  });
+
+  console.log('✅ Admin created:', adminUser.email);
+  console.log('📧 Email: guillermo.sanchezy@gmail.com');
   console.log('🔑 Password: Admin123!');
 
   const contract1 = await prisma.contract.upsert({

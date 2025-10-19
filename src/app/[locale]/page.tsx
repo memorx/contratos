@@ -23,9 +23,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-blue-600">
-                LegalStock
-              </span>
+              <Link href="/">
+                <span className="text-2xl font-bold text-blue-600 cursor-pointer">
+                  LegalStock
+                </span>
+              </Link>
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
@@ -66,12 +68,16 @@ export default function Home() {
                 </button>
               </div>
 
-              <button className="text-gray-700 hover:text-blue-600 transition">
-                {t('nav.login')}
-              </button>
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-                {t('nav.signup')}
-              </button>
+              <Link href="/auth/login">
+                <button className="text-gray-700 hover:text-blue-600 transition">
+                  {t('nav.login')}
+                </button>
+              </Link>
+              <Link href="/auth/register">
+                <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                  {t('nav.signup')}
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -89,9 +95,11 @@ export default function Home() {
             {t('hero.description')}
           </p>
           <div className="flex gap-4 justify-center">
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition">
-              {t('hero.cta_primary')}
-            </button>
+            <Link href="/auth/register">
+              <button className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition">
+                {t('hero.cta_primary')}
+              </button>
+            </Link>
             <button className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg text-lg font-semibold hover:border-gray-400 transition">
               {t('hero.cta_secondary')}
             </button>
@@ -122,7 +130,7 @@ export default function Home() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                   />
                 </svg>
               </div>
@@ -144,7 +152,7 @@ export default function Home() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
                   />
                 </svg>
               </div>
@@ -166,7 +174,7 @@ export default function Home() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
                   />
                 </svg>
               </div>
@@ -275,10 +283,7 @@ export default function Home() {
             </div>
 
             {/* Basic */}
-            <div className="bg-white p-8 rounded-xl shadow-lg border-2 border-blue-500 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                Popular
-              </div>
+            <div className="bg-white p-8 rounded-xl shadow-sm border-2 border-gray-200 hover:border-blue-500 transition">
               <h3 className="text-2xl font-bold mb-2">
                 {t('pricing.basic_title')}
               </h3>
@@ -423,8 +428,22 @@ export default function Home() {
                   </svg>
                   {t('pricing.premium_feature4')}
                 </li>
+                <li className="flex items-center">
+                  <svg
+                    className="w-5 h-5 text-green-500 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  {t('pricing.premium_feature5')}
+                </li>
               </ul>
-              <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition">
+              <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
                 {t('pricing.premium_cta')}
               </button>
             </div>
@@ -432,21 +451,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-blue-600 text-white">
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-4xl font-bold mb-4">{t('cta.title')}</h2>
-          <p className="text-xl mb-8 text-blue-100">{t('cta.subtitle')}</p>
-          <button className="bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition">
-            {t('cta.button')}
-          </button>
-        </div>
-      </section>
-
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12">
+      <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p>&copy; 2025 LegalStock. Todos los derechos reservados.</p>
+          <p className="text-gray-400">
+            © 2024 LegalStock. Todos los derechos reservados.
+          </p>
         </div>
       </footer>
     </div>
