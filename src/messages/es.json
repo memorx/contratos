@@ -1,0 +1,70 @@
+{
+  "landing": {
+    "nav": {
+      "features": "Características",
+      "pricing": "Precios",
+      "login": "Iniciar Sesión",
+      "signup": "Registrarse"
+    },
+    "hero": {
+      "title": "Contratos Legales Profesionales",
+      "subtitle": "al Alcance de un Click",
+      "description": "Accede a una biblioteca completa de contratos legales en México. Descarga, personaliza y firma digitalmente con validez legal.",
+      "cta_primary": "Explorar Contratos",
+      "cta_secondary": "Ver Demo"
+    },
+    "features": {
+      "title": "Todo lo que Necesitas",
+      "subtitle": "Para Proteger tu Negocio",
+      "feature1_title": "Validez Legal",
+      "feature1_desc": "Todos nuestros contratos cumplen con la legislación mexicana vigente",
+      "feature2_title": "Firma Digital",
+      "feature2_desc": "Integración con Mifiel para firmas electrónicas con validez legal (NOM-151)",
+      "feature3_title": "Descarga Inmediata",
+      "feature3_desc": "Acceso instantáneo a tus contratos en formato PDF editable",
+      "feature4_title": "Asesoría AI",
+      "feature4_desc": "Chat con \"Abogadito\" para resolver dudas básicas (Plan Premium)"
+    },
+    "pricing": {
+      "title": "Planes para Todos",
+      "individual_title": "Contratos Individuales",
+      "individual_price": "$299",
+      "individual_period": "por contrato",
+      "individual_feature1": "1 contrato específico",
+      "individual_feature2": "Descarga PDF editable",
+      "individual_feature3": "Firma digital opcional",
+      "individual_cta": "Explorar Catálogo",
+      "basic_title": "Plan Básico",
+      "basic_price": "$299",
+      "basic_period": "/mes",
+      "basic_feature1": "Acceso ilimitado a contratos",
+      "basic_feature2": "Descarga PDF editable",
+      "basic_feature3": "Firma digital incluida",
+      "basic_feature4": "Facturación automática",
+      "basic_cta": "Comenzar Ahora",
+      "premium_title": "Plan Premium",
+      "premium_price": "$349",
+      "premium_period": "/mes",
+      "premium_feature1": "Todo del Plan Básico",
+      "premium_feature2": "Chat con Abogadito AI",
+      "premium_feature3": "Asesoría legal básica",
+      "premium_feature4": "Soporte prioritario",
+      "premium_cta": "Probar Premium"
+    },
+    "cta": {
+      "title": "¿Listo para Proteger tu Negocio?",
+      "subtitle": "Únete a cientos de empresas que confían en LegalStock",
+      "button": "Crear Cuenta Gratis"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "back": "Volver"
+  }
+}

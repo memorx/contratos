@@ -1,0 +1,70 @@
+{
+  "landing": {
+    "nav": {
+      "features": "Features",
+      "pricing": "Pricing",
+      "login": "Log In",
+      "signup": "Sign Up"
+    },
+    "hero": {
+      "title": "Professional Legal Contracts",
+      "subtitle": "One Click Away",
+      "description": "Access a complete library of legal contracts in Mexico. Download, customize, and digitally sign with legal validity.",
+      "cta_primary": "Explore Contracts",
+      "cta_secondary": "View Demo"
+    },
+    "features": {
+      "title": "Everything You Need",
+      "subtitle": "To Protect Your Business",
+      "feature1_title": "Legal Validity",
+      "feature1_desc": "All our contracts comply with current Mexican legislation",
+      "feature2_title": "Digital Signature",
+      "feature2_desc": "Integration with Mifiel for electronic signatures with legal validity (NOM-151)",
+      "feature3_title": "Instant Download",
+      "feature3_desc": "Instant access to your contracts in editable PDF format",
+      "feature4_title": "AI Advisory",
+      "feature4_desc": "Chat with \"Abogadito\" to resolve basic questions (Premium Plan)"
+    },
+    "pricing": {
+      "title": "Plans for Everyone",
+      "individual_title": "Individual Contracts",
+      "individual_price": "$299",
+      "individual_period": "per contract",
+      "individual_feature1": "1 specific contract",
+      "individual_feature2": "Editable PDF download",
+      "individual_feature3": "Optional digital signature",
+      "individual_cta": "Explore Catalog",
+      "basic_title": "Basic Plan",
+      "basic_price": "$299",
+      "basic_period": "/month",
+      "basic_feature1": "Unlimited contract access",
+      "basic_feature2": "Editable PDF download",
+      "basic_feature3": "Digital signature included",
+      "basic_feature4": "Automatic invoicing",
+      "basic_cta": "Get Started",
+      "premium_title": "Premium Plan",
+      "premium_price": "$349",
+      "premium_period": "/month",
+      "premium_feature1": "Everything in Basic Plan",
+      "premium_feature2": "Chat with Abogadito AI",
+      "premium_feature3": "Basic legal advisory",
+      "premium_feature4": "Priority support",
+      "premium_cta": "Try Premium"
+    },
+    "cta": {
+      "title": "Ready to Protect Your Business?",
+      "subtitle": "Join hundreds of companies that trust LegalStock",
+      "button": "Create Free Account"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back"
+  }
+}
