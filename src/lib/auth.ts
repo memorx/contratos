@@ -1,18 +1,18 @@
-// src/lib/auth.ts
-import NextAuth, { AuthOptions, User } from 'next-auth';
+import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import { prisma } from '@/lib/prisma';
 import bcrypt from 'bcryptjs';
+import type { NextAuthConfig } from 'next-auth';
 
-export const authOptions: AuthOptions = {
+export const authConfig = {
   session: {
     strategy: 'jwt'
   },
   pages: {
-    signIn: '/auth/login',
-    signOut: '/auth/logout',
-    error: '/auth/error'
+    signIn: '/es/auth/login',
+    signOut: '/es/auth/logout',
+    error: '/es/auth/error'
   },
   providers: [
     CredentialsProvider({
@@ -21,14 +21,14 @@ export const authOptions: AuthOptions = {
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' }
       },
-      async authorize(credentials): Promise<User | null> {
+      async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
           return null;
         }
 
         const user = await prisma.user.findUnique({
           where: {
-            email: credentials.email
+            email: credentials.email as string
           }
         });
 
@@ -37,7 +37,7 @@ export const authOptions: AuthOptions = {
         }
 
         const isPasswordValid = await bcrypt.compare(
-          credentials.password,
+          credentials.password as string,
           user.password
         );
 
@@ -70,11 +70,13 @@ export const authOptions: AuthOptions = {
     },
     async session({ session, token }) {
       if (token && session.user) {
-        (session.user as any).id = token.id;
+        (session.user as any).id = token.id as string;
         (session.user as any).role = token.role;
       }
       return session;
     }
   },
   debug: process.env.NODE_ENV === 'development'
-};
+} satisfies NextAuthConfig;
+
+export const { handlers, auth, signIn, signOut } = NextAuth(authConfig);

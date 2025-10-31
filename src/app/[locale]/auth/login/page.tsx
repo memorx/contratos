@@ -2,12 +2,14 @@
 
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams, useParams } from 'next/navigation';
 import { Link } from '@/i18n/routing';
 
 export default function LoginPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const params = useParams();
+  const locale = params.locale as string; // 👈 AGREGADO
   const registered = searchParams.get('registered');
 
   const [formData, setFormData] = useState({
@@ -36,8 +38,8 @@ export default function LoginPage() {
         return;
       }
 
-      // Login exitoso
-      router.push('/dashboard');
+      // ✅ Login exitoso - redirect con locale
+      router.push(`/${locale}/dashboard`); // 👈 CAMBIADO
       router.refresh();
     } catch (err: any) {
       setError('Error al iniciar sesión');
@@ -47,7 +49,7 @@ export default function LoginPage() {
 
   const handleGoogleSignIn = async () => {
     try {
-      await signIn('google', { callbackUrl: '/dashboard' });
+      await signIn('google', { callbackUrl: `/${locale}/dashboard` }); // 👈 CAMBIADO
     } catch (err) {
       setError('Error al iniciar sesión con Google');
     }
