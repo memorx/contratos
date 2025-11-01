@@ -2,87 +2,12 @@
 
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { usePathname, useRouter } from '@/i18n/routing';
-import { useParams } from 'next/navigation';
 
 export default function Home() {
   const t = useTranslations('landing');
-  const pathname = usePathname();
-  const router = useRouter();
-  const params = useParams();
-  const currentLocale = params.locale as string;
-
-  const switchLocale = (newLocale: string) => {
-    router.replace(pathname, { locale: newLocale });
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Navigation */}
-      <nav className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/">
-                <span className="text-2xl font-bold text-blue-600 cursor-pointer">
-                  LegalStock
-                </span>
-              </Link>
-            </div>
-
-            <div className="hidden md:flex items-center space-x-8">
-              <a
-                href="#features"
-                className="text-gray-700 hover:text-blue-600 transition"
-              >
-                {t('nav.features')}
-              </a>
-              <a
-                href="#pricing"
-                className="text-gray-700 hover:text-blue-600 transition"
-              >
-                {t('nav.pricing')}
-              </a>
-
-              {/* Language Switcher */}
-              <div className="flex items-center space-x-2 border-l pl-4">
-                <button
-                  onClick={() => switchLocale('es')}
-                  className={`px-2 py-1 rounded ${
-                    currentLocale === 'es'
-                      ? 'bg-blue-600 text-white'
-                      : 'text-gray-600 hover:bg-gray-100'
-                  }`}
-                >
-                  ES
-                </button>
-                <button
-                  onClick={() => switchLocale('en')}
-                  className={`px-2 py-1 rounded ${
-                    currentLocale === 'en'
-                      ? 'bg-blue-600 text-white'
-                      : 'text-gray-600 hover:bg-gray-100'
-                  }`}
-                >
-                  EN
-                </button>
-              </div>
-
-              <Link href="/auth/login">
-                <button className="text-gray-700 hover:text-blue-600 transition">
-                  {t('nav.login')}
-                </button>
-              </Link>
-              <Link href="/auth/register">
-                <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-                  {t('nav.signup')}
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
