@@ -83,11 +83,11 @@ export function Navbar() {
             </Button>
 
             <Button variant="ghost" asChild>
-              <Link href="/login">Log In</Link>
+              <Link href="/auth/login">Log In</Link>
             </Button>
 
             <Button asChild>
-              <Link href="/signup">Sign Up</Link>
+              <Link href="/auth/register">Sign Up</Link>
             </Button>
           </div>
 
